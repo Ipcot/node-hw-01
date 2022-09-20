@@ -15,15 +15,12 @@ const argv = program.opts();
 
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
-    case "list":
+    case 'list':
       const contacts = await listContacts();
       console.table(contacts);
       break;
-      case "get":
+      case 'get':
       const contact = await getContactById(id);
-      if(!contact) {
-        throw new Error(`Contact with id=${id} not exist`)
-      }
       console.log(contact);
       break;
     case 'add':
